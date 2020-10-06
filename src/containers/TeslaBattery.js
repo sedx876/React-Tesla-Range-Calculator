@@ -2,6 +2,7 @@ import React from 'react';import './TeslaBattery.css';
 import TeslaNotice from '../components/TeslaNotice/TeslaNotice'
 import TeslaCar from '../components/TeslaCar/TeslaCar'
 import TeslaStats from '../components/TeslaStats/TeslaStats';
+import TeslaClimate from '../components/TeslaClimate/TeslaClimate';
 import TeslaCounter from '../components/TeslaCounter/TeslaCounter';
 import { getModelData } from '../services/BatteryService';
 
@@ -113,6 +114,11 @@ class TeslaBattery extends React.Component{
               initValues={this.props.counterDefaultVal.temperature}
               increment={this.increment}
               decrement={this.decrement}
+            />
+            <TeslaClimate
+              value={this.state.config.climate}
+              limit={this.state.config.temperature > 10}
+              handleChangeClimate={this.handleChangeClimate}
             />
           </div>
         </div>
